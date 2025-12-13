@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSANE GPU CHALLENGE</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
 
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Scene, Camera, Renderer setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Super Heavy Geometry (Ultra-high resolution sphere)
+        const heavyGeometry = new THREE.DodecahedronGeometry(10, 5); // Level 5 subdivision
+        const heavyMaterial = new THREE.MeshStandardMaterial({ 
+            color: 0x5555ff, 
+            metalness: 1.0, 
+            roughness: 0.1 
+        });
+        for (let i = 0; i < 300; i++) {
+            const mesh = new THREE.Mesh(heavyGeometry, heavyMaterial);
+            mesh.position.set(
+                (Math.random() - 0.5) * 1000,
+                (Math.random() - 0.5) * 1000,
+                (Math.random() - 0.5) * 1000
+            );
+            mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+            scene.add(mesh);
+        }
+
+        // Crazy Particles (10 million particles!)
+        const particles = new THREE.BufferGeometry();
+        const numParticles = 10000000; // 10 million particles
+        const particlePositions = new Float32Array(numParticles * 3);
+        const particleVelocities = new Float32Array(numParticles * 3);
+
+        for (let i = 0; i < numParticles; i++) {
+            particlePositions[i * 3] = (Math.random() - 0.5) * 2000;
+            particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
+            particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 2000;
+
+            particleVelocities[i * 3] = (Math.random() - 0.5) * 0.1;
+            particleVelocities[i * 3 + 1] = (Math.random() - 0.5) * 0.1;
+            particleVelocities[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+        particles.setAttribute('velocity', new THREE.BufferAttribute(particleVelocities, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({ size: 0.2, color: 0xffffff });
+        const particleSystem = new THREE.Points(particles, particleMaterial);
+        scene.add(particleSystem);
+
+        // Lighting Overload (Dynamic lights)
+        for (let i = 0; i < 100; i++) {
+            const light = new THREE.PointLight(Math.random() * 0xffffff, 3, 500);
+            light.position.set(
+                (Math.random() - 0.5) * 200,
+                (Math.random() - 0.5) * 200,
+                (Math.random() - 0.5) * 200
+            );
+            scene.add(light);
+        }
+
+        // Animation Function
+        const clock = new THREE.Clock();
+        const animate = function () {
+            const delta = clock.getDelta();
+
+            // Update particle positions
+            const positions = particles.attributes.position.array;
+            const velocities = particles.attributes.velocity.array;
+
+            for (let i = 0; i < numParticles; i++) {
+                positions[i * 3] += velocities[i * 3] * delta * 100;
+                positions[i * 3 + 1] += velocities[i * 3 + 1] * delta * 100;
+                positions[i * 3 + 2] += velocities[i * 3 + 2] * delta * 100;
+
+                if (positions[i * 3] > 1000 || positions[i * 3] < -1000) velocities[i * 3] *= -1;
+                if (positions[i * 3 + 1] > 1000 || positions[i * 3 + 1] < -1000) velocities[i * 3 + 1] *= -1;
+                if (positions[i * 3 + 2] > 1000 || positions[i * 3 + 2] < -1000) velocities[i * 3 + 2] *= -1;
+            }
+
+            particles.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        };
+
+        camera.position.z = 500;
+        animate();
+
+        // Handle Window Resizing
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>
