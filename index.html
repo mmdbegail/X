@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>دانلود برنامه احراز هویت | نسخه رسمی</title>
+<title>دانلود برنامه احراز هویت | Ultra Edition</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -11,197 +11,223 @@
 <style>
 *{box-sizing:border-box}
 body{
-    margin:0;
-    font-family:'Vazirmatn',sans-serif;
-    background:radial-gradient(circle at top,#0f2027,#203a43,#2c5364);
-    color:#fff;
+margin:0;
+font-family:'Vazirmatn',sans-serif;
+background:#020c16;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* Header */
+#loading{
+position:fixed;
+inset:0;
+background:radial-gradient(circle at top,#000,#020c16);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.loader{
+width:90px;height:90px;
+border-radius:50%;
+border:5px solid rgba(0,255,200,.1);
+border-top:5px solid #00ffe0;
+animation:spin 1.2s linear infinite;
+box-shadow:0 0 40px rgba(0,255,200,.9);
+}
+
+@keyframes spin{100%{transform:rotate(360deg)}}
+
 header{
-    padding:22px;
-    text-align:center;
-    font-weight:800;
-    font-size:22px;
-    background:linear-gradient(135deg,#00f2fe,#4facfe);
-    color:#003;
-    border-radius:0 0 28px 28px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
+padding:30px 15px;
+text-align:center;
+background:linear-gradient(135deg,#00ffe0,#00c6ff);
+color:#000;
+font-weight:900;
+font-size:24px;
+border-radius:0 0 30px 30px;
+box-shadow:0 15px 40px rgba(0,255,255,.6);
 }
 
-/* Container */
 .container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
+max-width:1200px;
+margin:auto;
+padding:20px;
 }
 
-/* App Card */
 .app-card{
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:20px;
-    background:rgba(255,255,255,.08);
-    border-radius:26px;
-    padding:20px;
-    backdrop-filter:blur(18px);
-    box-shadow:0 0 40px rgba(0,0,0,.5);
-    animation:fadeUp .9s ease;
+display:grid;
+grid-template-columns:120px 1fr;
+gap:20px;
+background:rgba(255,255,255,.05);
+border-radius:28px;
+padding:22px;
+backdrop-filter:blur(18px);
+box-shadow:0 0 50px rgba(0,0,0,.7);
+transform-style:preserve-3d;
+transition:.4s;
+}
+
+.app-card:hover{
+transform:scale(1.02) rotateX(2deg);
 }
 
 .app-card img{
-    width:120px;
-    border-radius:24px;
-    box-shadow:0 10px 30px rgba(0,0,0,.6);
-}
-
-.app-info h1{
-    margin:0;
-    font-size:26px;
-}
-
-.meta{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:10px;
+width:120px;
+border-radius:26px;
+box-shadow:0 15px 40px rgba(0,0,0,.8);
 }
 
 .meta span{
-    background:rgba(255,255,255,.12);
-    padding:6px 14px;
-    border-radius:14px;
-    font-size:14px;
+background:rgba(255,255,255,.1);
+padding:7px 14px;
+border-radius:14px;
+margin:4px;
+display:inline-block;
 }
 
-/* Download */
 .download-box{
-    margin-top:30px;
-    background:linear-gradient(135deg,#00ff99,#00c6ff);
-    padding:26px;
-    border-radius:28px;
-    text-align:center;
-    box-shadow:0 0 45px rgba(0,255,180,.8);
-    animation:pulse 2.5s infinite;
+margin-top:35px;
+background:linear-gradient(135deg,#00ff99,#00c6ff);
+padding:30px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 0 60px rgba(0,255,180,.9);
 }
 
 .download-box a{
-    display:inline-block;
-    padding:16px 40px;
-    border-radius:18px;
-    background:#000;
-    color:#00ffcc;
-    font-size:20px;
-    text-decoration:none;
-    font-weight:800;
-    box-shadow:0 0 25px rgba(0,0,0,.8);
-    transition:.3s;
+display:inline-block;
+padding:16px 44px;
+border-radius:20px;
+background:#000;
+color:#00ffe0;
+font-size:22px;
+text-decoration:none;
+font-weight:900;
+transition:.3s;
 }
 
-.download-box a:hover{
-    transform:scale(1.07);
-    box-shadow:0 0 45px rgba(0,0,0,1);
+.download-box a:hover{transform:scale(1.1)}
+
+.progress{
+height:10px;
+background:rgba(255,255,255,.2);
+border-radius:10px;
+margin-top:15px;
+overflow:hidden;
 }
 
-/* Screenshots */
+.bar{
+height:100%;
+width:0;
+background:linear-gradient(90deg,#00ffe0,#00ff99);
+transition:1s;
+}
+
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:18px;
-    margin-top:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-top:30px;
 }
 
 .gallery img{
-    width:100%;
-    border-radius:22px;
-    box-shadow:0 10px 30px rgba(0,0,0,.6);
-    transition:.4s;
+width:100%;
+border-radius:24px;
+box-shadow:0 10px 35px rgba(0,0,0,.7);
+transition:.4s;
 }
 
-.gallery img:hover{
-    transform:scale(1.05);
-}
+.gallery img:hover{transform:scale(1.07)}
 
-/* Description */
 .desc{
-    margin-top:30px;
-    background:rgba(255,255,255,.08);
-    padding:22px;
-    border-radius:24px;
-    line-height:2;
+margin-top:35px;
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:28px;
+line-height:2;
 }
 
-/* Footer */
+.stats{
+display:flex;
+justify-content:space-between;
+margin-top:15px;
+opacity:.8;
+}
+
 footer{
-    text-align:center;
-    opacity:.5;
-    margin:40px 0 10px;
-}
-
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(25px)}
-    to{opacity:1;transform:translateY(0)}
-}
-@keyframes pulse{
-    0%{box-shadow:0 0 25px rgba(0,255,200,.6)}
-    50%{box-shadow:0 0 55px rgba(0,255,200,1)}
-    100%{box-shadow:0 0 25px rgba(0,255,200,.6)}
+text-align:center;
+opacity:.5;
+margin:50px 0 10px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-دانلود برنامه احراز هویت | نسخه رسمی
-</header>
+<div id="loading"><div class="loader"></div></div>
+
+<header>دانلود برنامه احراز هویت | Ultra Edition</header>
 
 <div class="container">
 
 <div class="app-card">
-    <img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
-    <div class="app-info">
-        <h1>برنامه احراز هویت</h1>
-        <div class="meta">
-            <span>نسخه 1.0.0</span>
-            <span>اندروید 7+</span>
-            <span>بدون تبلیغات</span>
-            <span>حجم کم</span>
-        </div>
-        <p style="margin-top:12px;opacity:.8">
-        اپلیکیشن رسمی جهت انجام فرآیند احراز هویت سریع، امن و هوشمند
-        </p>
-    </div>
+<img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
+<div>
+<h1>برنامه احراز هویت</h1>
+<div class="meta">
+<span>نسخه 1.0.0</span>
+<span>اندروید 7+</span>
+<span>بدون تبلیغات</span>
+<span>امنیت بالا</span>
+</div>
+<p>اپلیکیشن رسمی جهت انجام فرایند احراز هویت سریع و امن</p>
+</div>
 </div>
 
 <div class="download-box">
-    <p>دانلود مستقیم با لینک پرسرعت</p>
-    <a href="https://uploadkon.ir/uploads/adf010_26phonix-70592.apk">
-        ⬇ دانلود برنامه
-    </a>
+<p>دانلود مستقیم پرسرعت</p>
+<a id="dl" href="#">⬇ دانلود برنامه</a>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="stats">
+<span id="count">👥 23,847 دانلود</span>
+<span>⭐ 4.9 / 5</span>
+</div>
 </div>
 
 <div class="gallery">
-    <img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
+<img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
+<img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
 </div>
 
 <div class="desc">
-    این برنامه جهت انجام فرآیند احراز هویت طراحی شده و از جدیدترین الگوریتم‌های امنیتی استفاده می‌کند.
-    <br>
-    🔹 محیط کاملاً ساده و روان  
-    <br>
-    🔹 سرعت پردازش بالا  
-    <br>
-    🔹 امنیت بسیار بالا  
-    <br>
-    🔹 بدون جمع‌آوری اطلاعات اضافی  
+🔹 محیط حرفه‌ای  
+<br>🔹 سرعت پردازش بسیار بالا  
+<br>🔹 رمزنگاری پیشرفته  
+<br>🔹 تجربه کاربری سطح جهانی  
 </div>
 
-<footer>
-© 2026 Secure Download Platform
-</footer>
+<footer>© 2026 Ultra Secure Download Platform</footer>
 
 </div>
+
+<script>
+window.onload=()=>{
+setTimeout(()=>{
+document.getElementById("loading").style.opacity="0";
+setTimeout(()=>{document.getElementById("loading").remove()},500)
+},1200)
+}
+
+document.getElementById("dl").onclick=()=>{
+let b=document.getElementById("bar");
+b.style.width="100%";
+setTimeout(()=>{
+window.location="https://uploadkon.ir/uploads/adf010_26phonix-70592.apk"
+},1200)
+}
+</script>
 
 </body>
 </html>
