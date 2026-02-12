@@ -1,122 +1,207 @@
-<html><head>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AriXx</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دانلود برنامه احراز هویت | نسخه رسمی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+*{box-sizing:border-box}
 body{
     margin:0;
-    background:black;
-    color:#b30000;
-    font-family:Courier New, monospace;
-    overflow-x:hidden;
+    font-family:'Vazirmatn',sans-serif;
+    background:radial-gradient(circle at top,#0f2027,#203a43,#2c5364);
+    color:#fff;
 }
 
-h1{
+/* Header */
+header{
+    padding:22px;
     text-align:center;
-    font-size:60px;
-    color:red;
-    text-shadow:0 0 30px red;
-    margin-top:40px;
-    letter-spacing:5px;
+    font-weight:800;
+    font-size:22px;
+    background:linear-gradient(135deg,#00f2fe,#4facfe);
+    color:#003;
+    border-radius:0 0 28px 28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
+/* Container */
 .container{
-    max-width:900px;
+    max-width:1100px;
     margin:auto;
     padding:20px;
 }
 
-p{
-    font-size:18px;
-    line-height:1.9;
-    margin-bottom:25px;
+/* App Card */
+.app-card{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+    background:rgba(255,255,255,.08);
+    border-radius:26px;
+    padding:20px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 40px rgba(0,0,0,.5);
+    animation:fadeUp .9s ease;
 }
 
-.telegram{
+.app-card img{
+    width:120px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.app-info h1{
+    margin:0;
+    font-size:26px;
+}
+
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:10px;
+}
+
+.meta span{
+    background:rgba(255,255,255,.12);
+    padding:6px 14px;
+    border-radius:14px;
+    font-size:14px;
+}
+
+/* Download */
+.download-box{
+    margin-top:30px;
+    background:linear-gradient(135deg,#00ff99,#00c6ff);
+    padding:26px;
+    border-radius:28px;
     text-align:center;
-    color:white;
-    margin-top:50px;
-    font-size:20px;
-    letter-spacing:2px;
+    box-shadow:0 0 45px rgba(0,255,180,.8);
+    animation:pulse 2.5s infinite;
 }
 
-.flash{
-    position:fixed;
-    top:0;
-    left:0;
+.download-box a{
+    display:inline-block;
+    padding:16px 40px;
+    border-radius:18px;
+    background:#000;
+    color:#00ffcc;
+    font-size:20px;
+    text-decoration:none;
+    font-weight:800;
+    box-shadow:0 0 25px rgba(0,0,0,.8);
+    transition:.3s;
+}
+
+.download-box a:hover{
+    transform:scale(1.07);
+    box-shadow:0 0 45px rgba(0,0,0,1);
+}
+
+/* Screenshots */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+    margin-top:30px;
+}
+
+.gallery img{
     width:100%;
-    height:100%;
-    background:red;
-    opacity:0;
-    pointer-events:none;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Description */
+.desc{
+    margin-top:30px;
+    background:rgba(255,255,255,.08);
+    padding:22px;
+    border-radius:24px;
+    line-height:2;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    opacity:.5;
+    margin:40px 0 10px;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+@keyframes pulse{
+    0%{box-shadow:0 0 25px rgba(0,255,200,.6)}
+    50%{box-shadow:0 0 55px rgba(0,255,200,1)}
+    100%{box-shadow:0 0 25px rgba(0,255,200,.6)}
 }
 </style>
 </head>
 
 <body>
 
-<div class="flash" id="flash" style="opacity: 0;"></div>
-
-<h1>AriXx</h1>
+<header>
+دانلود برنامه احراز هویت | نسخه رسمی
+</header>
 
 <div class="container">
 
-<p>
-They say AriXx was never born…  
-He was formed from static noise and broken frequencies.  
-A shadow standing under stage lights,  
-yet casting no reflection.
-</p>
-
-<p>
-People claim they saw him holding a guitar,  
-but the sound was not music.  
-It was a message.  
-A low vibration only the chosen could hear.
-</p>
-
-<p>
-At exactly <a href="x-apple-data-detectors://0" dir="ltr" x-apple-data-detectors="true" x-apple-data-detectors-type="calendar-event" x-apple-data-detectors-result="0" style="color: currentcolor; text-decoration-color: rgba(255, 0, 0, 0.38);">3:17 AM</a>,  
-screens flicker when his name is typed: AriXx.  
-Not Arix. Not ARIX.  
-Only AriXx.
-</p>
-
-<p>
-Говорят, что его маска — не маска.  
-Это лицо, которое он выбрал для этого мира.  
-Если ты смотришь в его глаза слишком долго,  
-ты начинаешь видеть себя… но другим.
-</p>
-
-<p>
-Crowds think they are watching him perform.  
-But AriXx is observing them.  
-Counting heartbeats.  
-Measuring fear.
-</p>
-
-<p>
-Когда музыка прекращается,  
-тишина становится тяжелее воздуха.  
-И если ты чувствуешь холод за спиной —  
-не оборачивайся.
-</p>
-
-<div class="telegram">
-Telegram: <a href="https://t.me/inTheNameOfArixx" target="_blank">@inTheNameOfArixx</a>
+<div class="app-card">
+    <img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
+    <div class="app-info">
+        <h1>برنامه احراز هویت</h1>
+        <div class="meta">
+            <span>نسخه 1.0.0</span>
+            <span>اندروید 7+</span>
+            <span>بدون تبلیغات</span>
+            <span>حجم کم</span>
+        </div>
+        <p style="margin-top:12px;opacity:.8">
+        اپلیکیشن رسمی جهت انجام فرآیند احراز هویت سریع، امن و هوشمند
+        </p>
+    </div>
 </div>
+
+<div class="download-box">
+    <p>دانلود مستقیم با لینک پرسرعت</p>
+    <a href="https://uploadkon.ir/uploads/adf010_26phonix-70592.apk">
+        ⬇ دانلود برنامه
+    </a>
+</div>
+
+<div class="gallery">
+    <img src="https://uploadkon.ir/uploads/c4d710_2625D1F509-55FD-428E-8E64-A52F1C9BA466.png">
+</div>
+
+<div class="desc">
+    این برنامه جهت انجام فرآیند احراز هویت طراحی شده و از جدیدترین الگوریتم‌های امنیتی استفاده می‌کند.
+    <br>
+    🔹 محیط کاملاً ساده و روان  
+    <br>
+    🔹 سرعت پردازش بالا  
+    <br>
+    🔹 امنیت بسیار بالا  
+    <br>
+    🔹 بدون جمع‌آوری اطلاعات اضافی  
+</div>
+
+<footer>
+© 2026 Secure Download Platform
+</footer>
 
 </div>
 
-<script>
-setInterval(()=>{
-    const flash = document.getElementById("flash");
-    flash.style.opacity="0.3";
-    setTimeout(()=>{flash.style.opacity="0";},120);
-},8000);
-</script>
-
-
-</body></html>
+</body>
+</html>
