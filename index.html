@@ -1,117 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSANE GPU CHALLENGE</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AriXx</title>
 
-        canvas {
-            display: block;
-        }
-    </style>
+<style>
+body{
+    margin:0;
+    background:black;
+    color:#b30000;
+    font-family:Courier New, monospace;
+    overflow-x:hidden;
+}
+
+h1{
+    text-align:center;
+    font-size:60px;
+    color:red;
+    text-shadow:0 0 30px red;
+    margin-top:40px;
+    letter-spacing:5px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.telegram{
+    text-align:center;
+    color:white;
+    margin-top:50px;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+.flash{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:red;
+    opacity:0;
+    pointer-events:none;
+}
+</style>
 </head>
+
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        // Scene, Camera, Renderer setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
 
-        // Super Heavy Geometry (Ultra-high resolution sphere)
-        const heavyGeometry = new THREE.DodecahedronGeometry(10, 5); // Level 5 subdivision
-        const heavyMaterial = new THREE.MeshStandardMaterial({ 
-            color: 0x5555ff, 
-            metalness: 1.0, 
-            roughness: 0.1 
-        });
-        for (let i = 0; i < 300; i++) {
-            const mesh = new THREE.Mesh(heavyGeometry, heavyMaterial);
-            mesh.position.set(
-                (Math.random() - 0.5) * 1000,
-                (Math.random() - 0.5) * 1000,
-                (Math.random() - 0.5) * 1000
-            );
-            mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
-            scene.add(mesh);
-        }
+<div class="flash" id="flash" style="opacity: 0;"></div>
 
-        // Crazy Particles (10 million particles!)
-        const particles = new THREE.BufferGeometry();
-        const numParticles = 10000000; // 10 million particles
-        const particlePositions = new Float32Array(numParticles * 3);
-        const particleVelocities = new Float32Array(numParticles * 3);
+<h1>AriXx</h1>
 
-        for (let i = 0; i < numParticles; i++) {
-            particlePositions[i * 3] = (Math.random() - 0.5) * 2000;
-            particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
-            particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 2000;
+<div class="container">
 
-            particleVelocities[i * 3] = (Math.random() - 0.5) * 0.1;
-            particleVelocities[i * 3 + 1] = (Math.random() - 0.5) * 0.1;
-            particleVelocities[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
-        }
+<p>
+They say AriXx was never born…  
+He was formed from static noise and broken frequencies.  
+A shadow standing under stage lights,  
+yet casting no reflection.
+</p>
 
-        particles.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
-        particles.setAttribute('velocity', new THREE.BufferAttribute(particleVelocities, 3));
+<p>
+People claim they saw him holding a guitar,  
+but the sound was not music.  
+It was a message.  
+A low vibration only the chosen could hear.
+</p>
 
-        const particleMaterial = new THREE.PointsMaterial({ size: 0.2, color: 0xffffff });
-        const particleSystem = new THREE.Points(particles, particleMaterial);
-        scene.add(particleSystem);
+<p>
+At exactly <a href="x-apple-data-detectors://0" dir="ltr" x-apple-data-detectors="true" x-apple-data-detectors-type="calendar-event" x-apple-data-detectors-result="0" style="color: currentcolor; text-decoration-color: rgba(255, 0, 0, 0.38);">3:17 AM</a>,  
+screens flicker when his name is typed: AriXx.  
+Not Arix. Not ARIX.  
+Only AriXx.
+</p>
 
-        // Lighting Overload (Dynamic lights)
-        for (let i = 0; i < 100; i++) {
-            const light = new THREE.PointLight(Math.random() * 0xffffff, 3, 500);
-            light.position.set(
-                (Math.random() - 0.5) * 200,
-                (Math.random() - 0.5) * 200,
-                (Math.random() - 0.5) * 200
-            );
-            scene.add(light);
-        }
+<p>
+Говорят, что его маска — не маска.  
+Это лицо, которое он выбрал для этого мира.  
+Если ты смотришь в его глаза слишком долго,  
+ты начинаешь видеть себя… но другим.
+</p>
 
-        // Animation Function
-        const clock = new THREE.Clock();
-        const animate = function () {
-            const delta = clock.getDelta();
+<p>
+Crowds think they are watching him perform.  
+But AriXx is observing them.  
+Counting heartbeats.  
+Measuring fear.
+</p>
 
-            // Update particle positions
-            const positions = particles.attributes.position.array;
-            const velocities = particles.attributes.velocity.array;
+<p>
+Когда музыка прекращается,  
+тишина становится тяжелее воздуха.  
+И если ты чувствуешь холод за спиной —  
+не оборачивайся.
+</p>
 
-            for (let i = 0; i < numParticles; i++) {
-                positions[i * 3] += velocities[i * 3] * delta * 100;
-                positions[i * 3 + 1] += velocities[i * 3 + 1] * delta * 100;
-                positions[i * 3 + 2] += velocities[i * 3 + 2] * delta * 100;
+<div class="telegram">
+Telegram: <a href="https://t.me/inTheNameOfArixx" target="_blank">@inTheNameOfArixx</a>
+</div>
 
-                if (positions[i * 3] > 1000 || positions[i * 3] < -1000) velocities[i * 3] *= -1;
-                if (positions[i * 3 + 1] > 1000 || positions[i * 3 + 1] < -1000) velocities[i * 3 + 1] *= -1;
-                if (positions[i * 3 + 2] > 1000 || positions[i * 3 + 2] < -1000) velocities[i * 3 + 2] *= -1;
-            }
+</div>
 
-            particles.attributes.position.needsUpdate = true;
+<script>
+setInterval(()=>{
+    const flash = document.getElementById("flash");
+    flash.style.opacity="0.3";
+    setTimeout(()=>{flash.style.opacity="0";},120);
+},8000);
+</script>
 
-            renderer.render(scene, camera);
-            requestAnimationFrame(animate);
-        };
 
-        camera.position.z = 500;
-        animate();
-
-        // Handle Window Resizing
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
-    </script>
-</body>
-</html>
+</body></html>
