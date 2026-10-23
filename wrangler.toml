@@ -1,0 +1,3 @@
+name = "telegram-checkout"
+main = "worker.js"          # مسیر فایل Worker نسبت به ریشهٔ ریپو
+compatibility_date = "2026-10-23"
